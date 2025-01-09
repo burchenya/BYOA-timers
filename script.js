@@ -36,16 +36,16 @@ function startTimer() {
             timeLeft = WORK_TIME;
         }
         timerId = setInterval(() => {
-            timeLeft--;
+            timeLeft -= 0.01;
             updateDisplay();
             
-            if (timeLeft === 0) {
+            if (timeLeft <= 0) {
                 clearInterval(timerId);
                 timerId = null;
                 switchMode();
                 startTimer();
             }
-        }, 1000);
+        }, 10);
     }
 }
 
